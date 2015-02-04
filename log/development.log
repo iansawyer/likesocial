@@ -2183,3 +2183,66 @@ Completed 200 OK in 55ms (Views: 49.1ms | ActiveRecord: 1.1ms)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"  WHERE (NOT (id = 1))  ORDER BY created_at DESC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "conversations"  WHERE (conversations.sender_id =1 OR conversations.recipient_id =1)
+  [1m[36mConversation Load (0.2ms)[0m  [1mSELECT "conversations".* FROM "conversations"  WHERE (conversations.sender_id =1 OR conversations.recipient_id =1)  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  WHERE "messages"."conversation_id" = ?  ORDER BY "messages"."id" DESC LIMIT 1[0m  [["conversation_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "messages".* FROM "messages"  WHERE "messages"."conversation_id" = ?  ORDER BY "messages"."id" DESC LIMIT 1  [["conversation_id", 1]]
+  Rendered users/index.html.erb within layouts/application (49.4ms)
+  Rendered layouts/_nav.html.erb (2.3ms)
+Completed 200 OK in 207ms (Views: 150.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/chat.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/conversations.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/private_pub.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/chat.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/conversations.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-04 04:11:36 -0500
