@@ -1,0 +1,24 @@
+<div class="chatboxhead">
+  <div class="chatboxtitle">
+    <i class="fa fa-comments"></i>
+
+    <h1><%= @reciever.name %> </h1>
+  </div>
+  <div class="chatboxoptions">
+    <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @eventgroup.id %>
+    &nbsp;&nbsp;
+    <%= link_to "<i class='fa  fa-times'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @eventgroup.id %>
+  </div>
+</div>
+<div class="chatboxcontent">
+  <% if @events.any? %>
+      <%= render @events %>
+  <% end %>
+</div>
+<div class="chatboxinput">
+  <%= form_for([@eventgroup, @event], :remote => true, :html => { id: "conversation_form_#{@eventgroup.id}"}) do |f| %>
+      <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => @eventgroup.id %>
+  <% end %>
+</div>
+
+<%= subscribe_to eventgroup_path(@eventgroup) %>

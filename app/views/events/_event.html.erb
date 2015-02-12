@@ -1,0 +1,11 @@
+<li class="<%=  self_or_other(event) %>">
+  <div class="avatar">
+    <img src="http://placehold.it/50x50" />
+  </div>
+  <div class="chatboxmessagecontent">
+    <p><%= event.body %></p>
+    <time datetime="<%= event.created_at %>" title="<%= event.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%= event_interlocutor(event).name %> • <%= event.created_at.strftime("%H:%M %p") %>
+    </time>
+  </div>
+</li>
